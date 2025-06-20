@@ -48,5 +48,13 @@ def complete_task(task_id):
     return redirect(url_for('index'))
 
 
+@app.route('/delete/<int:task_id>', methods=['POST'])
+def delete_task(task_id):
+    """Delete a task by its id."""
+    tasks[:] = [task for task in tasks if task['id'] != task_id]
+    save_tasks()
+    return redirect(url_for('index'))
+
+
 if __name__ == '__main__':
     app.run(debug=True)

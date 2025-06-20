@@ -5,6 +5,7 @@ A simple web application built with Flask to manage a list of tasks. Tasks are s
 ## Features
 - Add new tasks
 - Mark tasks as completed
+- Delete tasks
 
 ## Setup
 Install dependencies:

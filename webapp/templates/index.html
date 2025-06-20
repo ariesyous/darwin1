@@ -22,6 +22,9 @@
                 <button type="submit">Complete</button>
             </form>
             {% endif %}
+            <form action="/delete/{{ task.id }}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
         </li>
         {% endfor %}
     </ul>
