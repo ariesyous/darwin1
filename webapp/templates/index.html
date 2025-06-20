@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Task Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        .completed { text-decoration: line-through; color: gray; }
+    </style>
+</head>
+<body>
+    <h1>Task Tracker</h1>
+    <form action="/add" method="post">
+        <input type="text" name="title" placeholder="New Task" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+        <li class="{% if task.completed %}completed{% endif %}">
+            {{ task.title }}
+            {% if not task.completed %}
+            <form action="/complete/{{ task.id }}" method="post" style="display:inline;">
+                <button type="submit">Complete</button>
+            </form>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
